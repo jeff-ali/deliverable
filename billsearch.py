@@ -32,6 +32,7 @@ def bill_search(regular_expression):
     except Exception as zip_exception:
         print(f'Exception while unzipping: {zip_exception}')
 
+    # parse the XML files for the regular expression
     try:
         for file_path in os.scandir(f'{output_folder}/{inner_folder}'):
             if file_path.path.lower().endswith('.xml'):

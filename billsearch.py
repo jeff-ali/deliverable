@@ -6,19 +6,16 @@ from xml.etree import ElementTree
 from zipfile import ZipFile
 
 
-def bill_search(argv):
+def bill_search(regular_expression):
     """
     This method will unzip the Data Engineering Deliverable file and scan the XML files for a regex match.
     It will return a list of bills that match the regex.
 
-    :param argv:  List of command line arguments.
+    :param regular_expression: A regular expression.
     """
     # regex validation checking
-    if len(argv) != 1:
-        print('Please provide one regular expression.')
-        return
     try:
-        regex = re.compile(argv[0])
+        regex = re.compile(regular_expression)
     except re.error:
         print('Please provide a valid regular expression.')
         return
@@ -56,4 +53,4 @@ def bill_search(argv):
 
 
 if __name__ == "__main__":
-    bill_search(sys.argv[1:])
+    bill_search(sys.argv[1])
